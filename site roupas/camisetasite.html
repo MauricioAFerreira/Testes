@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COOL SHIRT</title>
+    <script>
+     let currentImage = 0;
+        const images = ["camiseta.png", "modelo.png"]; 
+
+        function changeImage() {
+            currentImage = (currentImage + 1) % images.length;
+            document.getElementById("camiseta-img").src = images[currentImage];
+        }
+
+        function comprar() {
+            alert("Produto adicionado ao carrinho!");
+        }
+
+        function calcularTamanho() {
+            const peso = parseFloat(document.getElementById("peso").value);
+            const altura = parseFloat(document.getElementById("altura").value);
+            const idade = parseFloat(document.getElementById("idade").value);
+            let tamanho;
+
+            if (peso < 60 && altura < 170 && idade < 25) {
+                tamanho = "P";
+            } else if (peso >= 60 && peso <75 && altura >= 170 && altura <= 180) {
+                tamanho = "M";
+            } else if (peso > 75 || altura > 180) {
+                tamanho = "G";
+            } else {
+                tamanho = "Normal";
+            }
+
+            document.getElementById("resultado").textContent = "O tamanho ideal para voce é: " + tamanho;
+
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>SUPER MEGA SWAG CLOTHES</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </header>
+    
+    <main>
+        <h2>HAPPY SHIrT :p</h2>
+        <div>
+            <img id="camiseta-img" src="camiseta.png" alt="Camiseta" width="400">
+            <button onclick="changeImage()">></button>
+        </div>
+       
+        <div>
+            <h3>SIZEEEES:</h3>
+            <input type="radio" name="tamS" name="tamanho" value="S">
+            <label for="tamS">Small size</label>
+            <input type="radio" name="tamM" name="tamanho" value="M">
+            <label for="tamM">Medium size</label>
+            <input type="radio" name="tamG" name="tamanho" value="G">
+            <label for="tamG">GIANT size</label>
+            <br><br>
+            <h4>oh, you don't know which size fits bettah in you? IMMA HELP YOU!!</h4>
+            
+            <p>MEGA SUPER CALCULATOR</p>
+            <label for="peso">weight (kg):</label>
+            <input type="number" id="peso" placeholder="Digite seu peso"><br><br>
+
+            <label for="altura">height (cm):</label>
+            <input type="number" id="altura" placeholder="Digite sua altura"><br><br>
+
+            <label for="idade">age:</label>
+            <input type="number" id="idade" placeholder="Digite sua idade"><br><br>
+
+            <button onclick="calcularTamanho()">calculate size</button>
+            <h2 id="resultado"></h2>
+        </div>
+        <div onclick="comprar()" style="cursor: pointer; color: red; font-size: 24px; padding: 10px;">Buy</button>
+    </main>
+</body>
+</html>
