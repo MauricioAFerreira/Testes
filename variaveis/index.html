@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Temperatura</title>
+</head>
+<body>
+    <h1>Verifique o Clima</h1>
+    <p id="result"></p> 
+
+    <script>
+
+        let temperature = parseInt(prompt("Digite a temperatura:"));
+
+        let message;
+
+        if (temperature < 10) {
+            message = "frio do cão. põe um casaco resistente.";
+        } else if (temperature >= 10 && temperature < 20) {
+            message = "friozinho. põe um casaquinho.";
+        } else if (temperature >= 20 && temperature < 30) {
+            message = "climinha bão. pode ficar pelado se quiser.";
+        } else {
+            message = "INFERNO";
+        }
+
+        document.getElementById("result").textContent = message;
+    </script>
+</body>
+</html>
